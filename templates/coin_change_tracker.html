@@ -5925,6 +5925,13 @@ pm2 status                                                # 查看所有进程�
                         }]
                     }); // 使用默认的merge模式，不覆盖已有系列
                         console.log('✅ trendChart.setOption 执行成功');
+                        
+                        // 🔍 调试：检查图表中的系列配置
+                        const option = trendChart.getOption();
+                        console.log('📊 图表系列数量:', option.series.length);
+                        option.series.forEach((s, i) => {
+                            console.log(`📊 系列${i}: ${s.name} (type: ${s.type}, data长度: ${s.data ? s.data.length : 0})`);
+                        });
                     } catch (error) {
                         console.error('❌ trendChart.setOption 执行失败:', error);
                         console.error('错误堆栈:', error.stack);
